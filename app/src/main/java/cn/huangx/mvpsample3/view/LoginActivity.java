@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.huangx.mvpsample3.ModelManager;
 import cn.huangx.mvpsample3.R;
 import cn.huangx.mvpsample3.base.BaseActivity;
 import cn.huangx.mvpsample3.model.UserModel;
@@ -32,7 +33,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter, ILoginView> impl
         return new PresenterLoader(this, new PresenterFactory<LoginPresenter>() {
             @Override
             public LoginPresenter create() {
-                return new LoginPresenter(new UserModel());
+                return new LoginPresenter(ModelManager.provideUserModel());
             }
         });
     }
